@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en" sstyle="scroll-behavior: smooth;">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Design</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+</head>
+
+<body>
+
+    <section>
+        <a style="text-decoration:none; text-align:center;line-height:50px;color:aliceblue;font-size:22px; position:fixed;width:50px;height:50px; bottom:50px; right:50px;" href="#">
+            <i class="fas fa-arrow-circle-up"></i>
+        </a>
+    </section>
+    <style>
+        .navy {
+            padding: 5px !important;
+            font-style: oblique !important;
+            color: #000000 !important;
+        }
+
+       
+    </style>
+
+    <div class="wrapper ">
+        <header>
+            <nav class="navbar-default bgcolor">
+                <div class="logo">
+                    LOGO
+                </div>
+                <div class="menu w-100 topnav">
+                    <ul>
+                        <li>
+                            <div class="buttons">
+                                <div class="container navy active">
+                                    <a asp-controller="Home" asp-action="Index" class="btn effect01"><span>Home</span></a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="buttons">
+                                <div class="container navy">
+                                    <a asp-controller="Home" asp-action="MyPortfolio" class="btn effect01"><span>My Portfolio</span></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="buttons">
+                                <div class="container navy">
+                                    <a asp-controller="Home" asp-action="AboutMe" class="btn effect01"><span>About Me</span></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="buttons">
+                                <div class="container navy">
+                                    <a asp-controller="Home" asp-action="Contact" class="btn effect01"><span>Contact</span></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="content ">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container position-absolute">
+            &copy; 2020 - Design - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $(window).scroll(function () {
+            $('nav').toggleClass('scrolled', $(this).scrollTop() > 200);
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

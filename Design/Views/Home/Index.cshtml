@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Contents>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .cardPosition{
+        position:static !important;
+    }
+</style>
+@foreach (var content in Model)
+{
+    <div style=" background-color: #A3BCB6; padding:10px;" class="card mb-3 cardPosition">
+        <div class="row cardPosition"> 
+            <div class="col-md-3 cardPosition">
+                <img src="~/img/@content.imgUrl" alt="@content.DescriptionShort" class="card-img border border-dark cardPosition" />
+            </div>
+            <div class="col-md-9 cardPosition">
+                <div class="card-body cardPosition">
+                    <h5 style="color: #3F3F3F" class="card-title">
+                        <a asp-action="ContentDetail" asp-controller="Home" asp-route-id="@content.Id">
+                            @content.ContentName
+                        </a>
+                    </h5> 
+                    <p style="color: #3F3F3F" class="card-text cardPosition">
+                        @content.DescriptionShort
+                    </p>
+                    <p style="color: #3F3F3F" class="card-text cardPosition">
+                        <small class="text-muted">3 days ago</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
